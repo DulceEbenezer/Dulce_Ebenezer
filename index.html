@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dulce Ebenezer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- CABECERA / LOGO -->
+    <header class="app-header">
+      <div class="top-buttons">
+        <!-- Aquí van los botones principales -->
+        <button class="pill-btn" data-screen="entremes">Entremés</button>
+        <button class="pill-btn" data-screen="regular">Tamaño regular</button>
+      </div>
+
+      <div class="logo-box">
+        <!-- Aquí pones tu logo real (PNG/SVG) -->
+        <h1 class="logo-text">Dulce Ebenezer</h1>
+        <p class="tagline">Pastelillos, flanes, tembleques y más</p>
+      </div>
+    </header>
+
+    <!-- CONTENIDO DINÁMICO -->
+    <main id="screenContainer">
+
+      <!-- PANTALLA INICIO -->
+      <section class="screen active" id="screen-home">
+        <p class="intro">
+          Selecciona una categoría arriba para ver productos y stock disponible.
+        </p>
+      </section>
+
+      <!-- MENÚ ENTREMÉS -->
+      <section class="screen" id="screen-entremes">
+        <h2 class="section-title">Entremés</h2>
+        <div class="card-grid">
+          <button class="card-btn" data-subscreen="entremes-pastelillos">
+            <span class="card-title">Pastelillos 3"</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+          <button class="card-btn" data-subscreen="entremes-flanes">
+            <span class="card-title">Flanes 3.5 oz</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+          <button class="card-btn" data-subscreen="entremes-tembleques">
+            <span class="card-title">Tembleques 3.5 oz</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- MENÚ TAMAÑO REGULAR -->
+      <section class="screen" id="screen-regular">
+        <h2 class="section-title">Tamaño regular</h2>
+        <div class="card-grid">
+          <button class="card-btn" data-subscreen="regular-pastelillos">
+            <span class="card-title">Pastelillos 6"</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+          <button class="card-btn" data-subscreen="regular-flanes">
+            <span class="card-title">Flanes 32 oz</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+          <button class="card-btn" data-subscreen="regular-tembleques">
+            <span class="card-title">Tembleques 32 oz</span>
+            <span class="card-sub">Sabores y stock</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- LISTADO DE PRODUCTOS (SE RELLENA CON JS) -->
+      <section class="screen" id="screen-products">
+        <button class="back-btn" id="backToMenu">&larr; Volver</button>
+        <h2 class="section-title" id="productsTitle"></h2>
+        <div id="productsList" class="product-list">
+          <!-- Aquí JS inserta las tarjetas de sabores con STOCK -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

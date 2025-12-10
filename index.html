@@ -6,31 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="dark-body">
   <div id="app">
 
-    <!-- CABECERA / LOGO -->
-    <header class="app-header">
-      <div class="top-buttons">
-        <!-- Aquí van los botones principales -->
-        <button class="pill-btn" data-screen="entremes">Entremés</button>
-        <button class="pill-btn" data-screen="regular">Tamaño regular</button>
-      </div>
+    <!-- HERO CENTRAL: LOGO + BOTONES FLOTANDO -->
+    <header class="hero-3d">
 
-      <div class="logo-box">
-        <!-- Aquí pones tu logo real (PNG/SVG) -->
-        <h1 class="logo-text">Dulce Ebenezer</h1>
-        <p class="tagline">Pastelillos, flanes, tembleques y más</p>
+      <!-- Fondos difuminados detrás -->
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+
+      <!-- Tarjeta del logo -->
+      <div class="logo-orbit">
+        <div class="logo-card">
+          <!-- Si luego quieres, cambias este H1 por <img> con tu logo -->
+          <!-- <img src="logo-dulce-ebenezer.png" class="logo-img" alt="Dulce Ebenezer" /> -->
+          <h1 class="logo-text">Dulce Ebenezer</h1>
+          <p class="logo-subtitle">Pastelillos · Flanes · Tembleques</p>
+        </div>
+
+        <!-- Botones flotando alrededor del logo -->
+        <div class="orbit-buttons">
+          <!-- Mismo data-screen que usa app.js -->
+          <button class="orbit-btn pill-btn btn-yellow orbit-top" data-screen="entremes">
+            <span class="orbit-title">Entremés</span>
+            <span class="orbit-sub">Tamaños pequeños</span>
+          </button>
+
+          <button class="orbit-btn pill-btn btn-pink orbit-right" data-screen="regular">
+            <span class="orbit-title">Tamaño regular</span>
+            <span class="orbit-sub">Pastelillos 6", flanes 32 oz</span>
+          </button>
+
+          <button class="orbit-btn btn-teal orbit-left disabled">
+            <span class="orbit-title">Órdenes</span>
+            <span class="orbit-sub">Muy pronto</span>
+          </button>
+
+          <button class="orbit-btn btn-green orbit-bottom disabled">
+            <span class="orbit-title">Stock (PWA)</span>
+            <span class="orbit-sub">Panel para ti</span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <!-- CONTENIDO DINÁMICO -->
-    <main id="screenContainer">
+    <!-- CONTENIDO: MENÚS Y LISTAS (MISMA LÓGICA DE ANTES) -->
+    <main id="screenContainer" class="content-panel">
 
-      <!-- PANTALLA INICIO -->
+      <!-- INICIO -->
       <section class="screen active" id="screen-home">
         <p class="intro">
-          Selecciona una categoría arriba para ver productos y stock disponible.
+          Toca uno de los botones de arriba para ver los sabores y el stock disponible
+          de cada producto.
         </p>
       </section>
 
@@ -72,18 +101,16 @@
         </div>
       </section>
 
-      <!-- LISTADO DE PRODUCTOS (SE RELLENA CON JS) -->
+      <!-- LISTA DE PRODUCTOS / SABORES -->
       <section class="screen" id="screen-products">
         <button class="back-btn" id="backToMenu">&larr; Volver</button>
         <h2 class="section-title" id="productsTitle"></h2>
-        <div id="productsList" class="product-list">
-          <!-- Aquí JS inserta las tarjetas de sabores con STOCK -->
-        </div>
+        <div id="productsList" class="product-list"></div>
       </section>
 
     </main>
-  </div>
 
-  <script src="app.js"></script>
+    <script src="app.js"></script>
+  </div>
 </body>
 </html>
